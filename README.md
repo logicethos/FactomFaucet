@@ -10,7 +10,7 @@
    
 **Build Docker Container**
 
-    docker build https://github.com/logicethos/FactomFaucet factom_faucet
+    docker build -t factom_faucet_img https://github.com/logicethos/FactomFaucet.git
 
 **Start Container**
 
@@ -19,7 +19,7 @@
        -e "RECAPTCHA=6LdR50MUAAAAADdV1OJZUazmjcwefqfw_vK-5UZe" \
        -e "RECAPTCHA_SECRET=6LdR50MUAAAAAD8ybRsVlqwewef710" \
        -e "DOMAIN=faucet.mydomain.com" \
-       -p 80:80 -p 443:443 factom_faucet
+       -p 80:80 -p 443:443 --name factom_faucet factom_faucet_img
 
 
 **Set up wallet, using factom-cli**
