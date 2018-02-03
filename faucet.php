@@ -1,3 +1,4 @@
+<p>
 <?php
 
 include("wallet.php");
@@ -35,7 +36,7 @@ else
 
    if (!$result->success)
    {
-    echo "The reCAPTCHA wasn't entered correctly. Go back and try it again. (". $resp->error . ")");         
+    echo "reCAPTCHA failed. Go back and try it again.";
    }
    else
    {   
@@ -52,4 +53,5 @@ else
 }
 
 ?>
+</p>
 <button onclick="history.go(-1);">Back </button>
