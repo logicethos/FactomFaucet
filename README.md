@@ -22,15 +22,18 @@
        -p 80:80 -p 443:443 --name factom_faucet factom_faucet_img
 
 
-**Set up wallet, using factom-cli**
+**To use factom-cli**
+
+    docker exec -it factom_faucet factom-cli ......
+
+**To access bash shell**
 
     docker exec -it factom_faucet /bin/bash
-    factom-cli .......
     
 **Configure faucet**
 
-edit the file /var/www/faucet.php
+edit the file /var/www/faucet.php in the container.
 
-**Test**
+**To use the Faucet**
 
 Visit https://mydomain.com
