@@ -5,7 +5,7 @@
  - A domain name (this will automatically be registered with letsencrypt).
  - reCAPTCHA keys from https://www.google.com/recaptcha/admin#list
  - A running factomd node, accessible from this container. 
- - Docker server
+ - A Docker server
     
    
 **Build Docker Container**
@@ -25,11 +25,11 @@
 **Set up wallet, using factom-cli**
 
     docker exec -it factom_faucet /bin/bash
-    /go/bin/factom-cli .......
+    factom-cli .......
     
 **Configure faucet**
 
-edit  the file /var/www/faucet.php
+edit the file /var/www/faucet.php
 
 **Test**
 
