@@ -9,6 +9,9 @@ else
     echo "WARNING: NO DOMAIN SET"
 fi
 
+#create socket proxy to factomd
+envsubst < /etc/nginx/streams.d/nginx-stream.conf_template > /etc/nginx/streams.d/factomd-stream.conf
+
 /usr/sbin/php-fpm7.0
 /usr/sbin/nginx
 /go/bin/factom-walletd -s $FACTOMD

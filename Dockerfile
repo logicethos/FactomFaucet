@@ -1,7 +1,7 @@
 FROM factominc/factom-walletd
 
 RUN apt-get update \
-    && apt-get -y install nginx php-fpm less socat joe
+    && apt-get -y install nginx php-fpm less socat gettext joe
 
 # Make php socket
 RUN mkdir /run/php
@@ -27,7 +27,11 @@ COPY index.php /var/www/
 COPY faucet.php /var/www/
 COPY wallet.php /var/www/
 
+#configure Nginx
 COPY nginx-default /etc/nginx/sites-available/default
+RUN mkdir -p /etc/nginx/streams.d
+RUN echo "include /etc/nginx/streams.d/*.conf;" >> /etc/nginx/nginx.conf
+COPY nginx-stream.conf /etc/nginx/streams.d/nginx-stream.conf_template
 
 # Install letsencrypt SSL service
 WORKDIR /root
