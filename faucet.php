@@ -6,6 +6,8 @@ include("wallet.php");
 $isEC = substr($_POST["address"],0,2) === "EC";
 $isFA = substr($_POST["address"],0,2) === "FA";
 
+$factomd = "/go/bin/factom-cli -s ".$_SERVER["FACTOMD"];
+   
 #Check address entered
 if (strlen($_POST["address"])!=52 || (!$isEC && !$isFA))
 {
@@ -42,11 +44,11 @@ else
    {   
        if ($isEC)
        {
-          $output = shell_exec("/go/bin/factom-cli buyec ".$walletAddress." ".$_POST["address"]." ".$ecToGive." 2>&1"); 
+          $output = shell_exec($factomd." buyec ".$walletAddress." ".$_POST["address"]." ".$ecToGive." 2>&1"); 
        }
        else
        {
-          $output = shell_exec("/go/bin/factom-cli sendfct ".$walletAddress." ".$_POST["address"]." ".$fctToGive." 2>&1");
+          $output = shell_exec($factomd." sendfct ".$walletAddress." ".$_POST["address"]." ".$fctToGive." 2>&1");
        }
        echo "<pre>$output</pre>";
    }
