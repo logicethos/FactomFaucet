@@ -32,8 +32,8 @@
     
 **Configure faucet**
 
-edit the file /var/www/faucet.php in the container.
+edit the file /var/www/wallet.php in the container.
 
 **To use the Faucet**
 
-Visit https://mydomain.com
+Visit https://.your-domain.com
